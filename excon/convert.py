@@ -1,15 +1,24 @@
+"""
+This module contains several functions for extracting
+data from PDF's using either the tabula python package or
+the command line tool tesseract.
+"""
+
 import pandas as pd
 import numpy as np
 from wand.image import Image
-import PIL.Image
 import os
 import subprocess
 from PyPDF2 import PdfFileWriter, PdfFileReader
 from tabula import convert_into
-import time
 
 
-def tab_pdf2csv():
+def pdf2csv():
+    """
+    Converts pdf tables to .csv files. Use "lattice" if
+    the table has borders, use "stream" if not.
+    :return:
+    """
     lattice = input("lattice? (True/False): ").title()
     stream = input("stream? (True/False): ").title()
 
@@ -20,7 +29,8 @@ def tab_pdf2csv():
             convert_into(file, filename[:14] + '.csv', output_format='csv',
                 stream=stream, lattice=lattice)
 
-def tab_csv2exc():
+def csv2exc():
+    """Converts the .csv to .excel file"""
     for file in os.listdir('.'):
         filename, ext = os.path.splitext(file)
         if ext == '.csv':
@@ -51,7 +61,7 @@ def convert_pdf():
 
 def ocr():
     """
-    Converty PDF to TXT file using Tesseract. 
+    Convert PDF to TXT file using Tesseract.
     """
     
     for file in os.listdir('.'):

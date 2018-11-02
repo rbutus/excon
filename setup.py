@@ -13,7 +13,7 @@ with open('LICENSE') as f:
 
 setup(
     name='excon',
-    version='0.1.0',
+    version='0.1.1',
     description='Extract and convert data from PDFs',
     long_description=readme,
     author='Ryan Trigg',

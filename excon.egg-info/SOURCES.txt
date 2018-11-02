@@ -4,7 +4,6 @@ README.rst
 setup.py
 excon/__init__.py
 excon/convert.py
-excon/core.py
 excon/datin.py
 excon/helpers.py
 excon.egg-info/PKG-INFO
