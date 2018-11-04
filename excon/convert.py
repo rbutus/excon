@@ -19,15 +19,36 @@ def pdf2csv():
     the table has borders, use "stream" if not.
     :return:
     """
-    lattice = input("lattice? (True/False): ").title()
-    stream = input("stream? (True/False): ").title()
+    while True:
+        lattice = str(input("Lattice? (true/false): ")).lower()
+        if lattice in ['true', 't']:
+            lattice = 'True'
+            break
+        elif lattice in ['false', 'f']:
+            lattice = 'False'
+            break
+        else:
+            print("Please try again.")
+
+    while True:
+        stream = str(input("Stream? (true/false): ")).lower()
+        if stream in ['true', 't']:
+            stream = 'True'
+            break
+        elif stream in ['false', 'f']:
+            stream = 'False'
+            break
+        else:
+            print("Please try again.")
 
     for file in os.listdir('.'):
         filepath, ext = os.path.splitext(file)
         path, filename = os.path.split(filepath)
         if ext == '.pdf':
-            convert_into(file, filename[:14] + '.csv', output_format='csv',
-                stream=stream, lattice=lattice)
+            convert_into(file, filename[:14] + '.csv',
+                         output_format='csv',
+                         stream=stream, lattice=lattice)
+
 
 def csv2exc():
     """Converts the .csv to .excel file"""
