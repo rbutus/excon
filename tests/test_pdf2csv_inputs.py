@@ -1,5 +1,5 @@
 """
-This is a testing module for the main program convert.py
+This is a testing module for the input of convert.pdf2csv()
 """
 
 from excon import convert

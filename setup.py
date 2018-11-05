@@ -18,7 +18,7 @@ setup(
     long_description=readme,
     author='Ryan Trigg',
     author_email='rbutustree@gmail.com',
-    url='https://github.com/rbutus/excon',
+    url='https://github.com/rbutus/excon.git',
     license=license,
     packages=find_packages(),
     classifiers=[
