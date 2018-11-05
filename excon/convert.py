@@ -20,22 +20,22 @@ def pdf2csv():
     :return:
     """
     while True:
-        lattice = str(input("Lattice? (true/false): ")).lower()
-        if lattice in ['true', 't']:
+        lattice = str(input("Lattice? (yes/no): ")).lower()
+        if lattice in ['yes', 'y']:
             lattice = 'True'
             break
-        elif lattice in ['false', 'f']:
+        elif lattice in ['no', 'n']:
             lattice = 'False'
             break
         else:
             print("Please try again.")
 
     while True:
-        stream = str(input("Stream? (true/false): ")).lower()
-        if stream in ['true', 't']:
+        stream = str(input("Stream? (yes/no): ")).lower()
+        if stream in ['yes', 'y']:
             stream = 'True'
             break
-        elif stream in ['false', 'f']:
+        elif stream in ['no', 'n']:
             stream = 'False'
             break
         else:
@@ -48,6 +48,8 @@ def pdf2csv():
             convert_into(file, filename[:14] + '.csv',
                          output_format='csv',
                          stream=stream, lattice=lattice)
+
+    return lattice, stream
 
 
 def csv2exc():
