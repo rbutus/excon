@@ -71,13 +71,15 @@ def convert_pdf():
     
     """
     
+    img_type = input("Would you like greyscale? (y/n)")
     for file in os.listdir('.'):
         basename = os.path.splitext(file)[0]
         ext = os.path.splitext(file)[1]
         if ext == ".pdf":
             with Image(filename=file, resolution=400) as img:
                 img.format = 'png'
-                img.type = 'grayscale'
+                if img_type.lower() == "y" or img_type.lower() == "yes":
+                    img.type = 'grayscale'
                 img.units = 'pixelsperinch'
                 img.save(filename='{}.png'.format(basename[:14]))
 
